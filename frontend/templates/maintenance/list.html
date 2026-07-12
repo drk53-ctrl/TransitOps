@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}
+Maintenance - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-header">
+
+
+    <h1>
+        Maintenance
+    </h1>
+
+
+    <a href="/maintenance/create">
+        Add Maintenance
+    </a>
+
+
+</div>
+
+
+
+<table>
+
+
+    <thead>
+
+
+        <tr>
+
+            <th>
+                Vehicle
+            </th>
+
+            <th>
+                Description
+            </th>
+
+            <th>
+                Service Date
+            </th>
+
+            <th>
+                Next Service
+            </th>
+
+            <th>
+                Cost
+            </th>
+
+            <th>
+                Status
+            </th>
+
+
+        </tr>
+
+
+    </thead>
+
+
+
+    <tbody>
+
+
+        {% for item in maintenance %}
+
+
+        <tr>
+
+
+            <td>
+                {{ item.vehicle.vehicle_number }}
+            </td>
+
+
+            <td>
+                {{ item.description }}
+            </td>
+
+
+            <td>
+                {{ item.service_date }}
+            </td>
+
+
+            <td>
+                {{ item.next_service_date }}
+            </td>
+
+
+            <td>
+                ₹ {{ item.cost }}
+            </td>
+
+
+            <td>
+                {{ item.status }}
+            </td>
+
+
+        </tr>
+
+
+        {% endfor %}
+
+
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

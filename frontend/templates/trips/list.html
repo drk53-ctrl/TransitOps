@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+Trips - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-header">
+
+    <h1>
+        Trips
+    </h1>
+
+
+    <a href="/trips/create">
+        Create Trip
+    </a>
+
+
+</div>
+
+
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>
+                Vehicle
+            </th>
+
+            <th>
+                Driver
+            </th>
+
+            <th>
+                Source
+            </th>
+
+            <th>
+                Destination
+            </th>
+
+            <th>
+                Status
+            </th>
+
+            <th>
+                Actions
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+
+        {% for trip in trips %}
+
+
+        <tr>
+
+
+            <td>
+                {{ trip.vehicle.vehicle_number }}
+            </td>
+
+
+            <td>
+                {{ trip.driver.name }}
+            </td>
+
+
+            <td>
+                {{ trip.source }}
+            </td>
+
+
+            <td>
+                {{ trip.destination }}
+            </td>
+
+
+            <td>
+                {{ trip.status }}
+            </td>
+
+
+            <td>
+
+                <a href="/trips/{{ trip.id }}">
+                    Details
+                </a>
+
+
+            </td>
+
+
+        </tr>
+
+
+        {% endfor %}
+
+
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

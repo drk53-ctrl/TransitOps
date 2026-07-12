@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Profile
+</h1>
+
+
+
+<div class="profile-card">
+
+
+    <p>
+
+        <strong>
+            Email:
+        </strong>
+
+        {{ user.email }}
+
+    </p>
+
+
+
+    <p>
+
+        <strong>
+            Role:
+        </strong>
+
+        {{ user.role }}
+
+    </p>
+
+
+
+    <p>
+
+        <strong>
+            Account ID:
+        </strong>
+
+        {{ user.id }}
+
+    </p>
+
+
+
+</div>
+
+
+
+{% endblock %}

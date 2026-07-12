@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}
+Drivers - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-header">
+
+    <h1>
+        Drivers
+    </h1>
+
+
+    <a href="/drivers/add">
+        Add Driver
+    </a>
+
+
+</div>
+
+
+<table>
+
+
+    <thead>
+
+        <tr>
+
+            <th>
+                Name
+            </th>
+
+            <th>
+                Phone
+            </th>
+
+            <th>
+                License Number
+            </th>
+
+            <th>
+                License Expiry
+            </th>
+
+            <th>
+                Status
+            </th>
+
+            <th>
+                Actions
+            </th>
+
+
+        </tr>
+
+    </thead>
+
+
+
+    <tbody>
+
+
+        {% for driver in drivers %}
+
+
+        <tr>
+
+
+            <td>
+                {{ driver.name }}
+            </td>
+
+
+            <td>
+                {{ driver.phone }}
+            </td>
+
+
+            <td>
+                {{ driver.license_number }}
+            </td>
+
+
+            <td>
+                {{ driver.license_expiry }}
+            </td>
+
+
+            <td>
+                {{ driver.status }}
+            </td>
+
+
+            <td>
+
+                <a href="/drivers/{{ driver.id }}/edit">
+                    Edit
+                </a>
+
+
+                <form method="post" action="/drivers/{{ driver.id }}/delete">
+
+                    <button type="submit">
+                        Delete
+                    </button>
+
+                </form>
+
+
+            </td>
+
+
+        </tr>
+
+
+        {% endfor %}
+
+
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

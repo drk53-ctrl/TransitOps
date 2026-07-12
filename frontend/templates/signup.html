@@ -1,0 +1,82 @@
+{% extends "auth_base.html" %}
+
+{% block title %}
+Signup - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-container">
+
+<h1>Create Account</h1>
+
+
+<form method="post" action="/auth/signup">
+
+
+<label>
+Email
+</label>
+
+<input 
+type="email"
+name="email"
+required
+>
+
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+name="password"
+required
+>
+
+
+<label>
+Role
+</label>
+
+<select name="role">
+
+<option value="Admin">
+Admin
+</option>
+
+<option value="Manager">
+Manager
+</option>
+
+<option value="Staff">
+Staff
+</option>
+
+</select>
+
+
+<button type="submit">
+Create Account
+</button>
+
+
+</form>
+
+
+<p>
+Already have an account?
+
+<a href="/">
+Login
+</a>
+
+</p>
+
+
+</div>
+
+
+{% endblock %}

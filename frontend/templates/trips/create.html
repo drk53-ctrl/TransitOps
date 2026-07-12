@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Trip - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Create Trip
+</h1>
+
+
+
+<form method="post" action="/trips/create">
+
+
+    <label>
+        Vehicle
+    </label>
+
+
+    <select name="vehicle_id">
+
+
+        {% for vehicle in vehicles %}
+
+
+        <option value="{{ vehicle.id }}">
+
+            {{ vehicle.vehicle_number }}
+
+        </option>
+
+
+        {% endfor %}
+
+
+    </select>
+
+
+
+    <label>
+        Driver
+    </label>
+
+
+    <select name="driver_id">
+
+
+        {% for driver in drivers %}
+
+
+        <option value="{{ driver.id }}">
+
+            {{ driver.name }}
+
+        </option>
+
+
+        {% endfor %}
+
+
+    </select>
+
+
+
+    <label>
+        Source
+    </label>
+
+
+    <input
+        type="text"
+        name="source"
+        required
+    >
+
+
+
+    <label>
+        Destination
+    </label>
+
+
+    <input
+        type="text"
+        name="destination"
+        required
+    >
+
+
+
+    <label>
+        Distance
+    </label>
+
+
+    <input
+        type="number"
+        step="0.1"
+        name="distance"
+    >
+
+
+
+    <button type="submit">
+        Start Trip
+    </button>
+
+
+</form>
+
+
+{% endblock %}

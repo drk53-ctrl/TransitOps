@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+Vehicles - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>
+        Vehicles
+    </h1>
+
+    <a href="/vehicles/add">
+        Add Vehicle
+    </a>
+
+</div>
+
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>
+                Vehicle Number
+            </th>
+
+            <th>
+                Type
+            </th>
+
+            <th>
+                Model
+            </th>
+
+            <th>
+                Status
+            </th>
+
+            <th>
+                Actions
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        {% for vehicle in vehicles %}
+
+        <tr>
+
+            <td>
+                {{ vehicle.vehicle_number }}
+            </td>
+
+            <td>
+                {{ vehicle.vehicle_type }}
+            </td>
+
+            <td>
+                {{ vehicle.model }}
+            </td>
+
+            <td>
+                {{ vehicle.status }}
+            </td>
+
+            <td>
+
+                <a href="/vehicles/{{ vehicle.id }}/edit">
+                    Edit
+                </a>
+
+                <form method="post" action="/vehicles/{{ vehicle.id }}/delete">
+
+                    <button type="submit">
+                        Delete
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+
+{% endblock %}

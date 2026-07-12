@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Driver - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<h1>
+    Edit Driver
+</h1>
+
+
+<form method="post" action="/drivers/{{ driver.id }}/edit">
+
+
+    <label>
+        Name
+    </label>
+
+    <input
+        type="text"
+        name="name"
+        value="{{ driver.name }}"
+        required
+    >
+
+
+    <label>
+        Phone
+    </label>
+
+    <input
+        type="text"
+        name="phone"
+        value="{{ driver.phone }}"
+    >
+
+
+    <label>
+        License Number
+    </label>
+
+    <input
+        type="text"
+        name="license_number"
+        value="{{ driver.license_number }}"
+        required
+    >
+
+
+    <label>
+        License Expiry
+    </label>
+
+    <input
+        type="date"
+        name="license_expiry"
+        value="{{ driver.license_expiry }}"
+    >
+
+
+    <label>
+        Status
+    </label>
+
+    <select name="status">
+
+
+        <option value="Available"
+        {% if driver.status == "Available" %}
+        selected
+        {% endif %}>
+            Available
+        </option>
+
+
+        <option value="On Trip"
+        {% if driver.status == "On Trip" %}
+        selected
+        {% endif %}>
+            On Trip
+        </option>
+
+
+        <option value="Inactive"
+        {% if driver.status == "Inactive" %}
+        selected
+        {% endif %}>
+            Inactive
+        </option>
+
+
+    </select>
+
+
+    <button type="submit">
+        Update Driver
+    </button>
+
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Maintenance - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Add Maintenance
+</h1>
+
+
+
+<form method="post" action="/maintenance/create">
+
+
+    <label>
+        Vehicle
+    </label>
+
+
+    <select name="vehicle_id">
+
+
+        {% for vehicle in vehicles %}
+
+
+        <option value="{{ vehicle.id }}">
+
+            {{ vehicle.vehicle_number }}
+
+        </option>
+
+
+        {% endfor %}
+
+
+    </select>
+
+
+
+    <label>
+        Description
+    </label>
+
+
+    <textarea name="description"></textarea>
+
+
+
+    <label>
+        Service Date
+    </label>
+
+
+    <input
+        type="date"
+        name="service_date"
+    >
+
+
+
+    <label>
+        Next Service Date
+    </label>
+
+
+    <input
+        type="date"
+        name="next_service_date"
+    >
+
+
+
+    <label>
+        Cost
+    </label>
+
+
+    <input
+        type="number"
+        step="0.01"
+        name="cost"
+    >
+
+
+
+    <label>
+        Status
+    </label>
+
+
+    <select name="status">
+
+
+        <option value="Pending">
+            Pending
+        </option>
+
+
+        <option value="Completed">
+            Completed
+        </option>
+
+
+    </select>
+
+
+
+    <button type="submit">
+        Save Maintenance
+    </button>
+
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Fuel - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Add Fuel Record
+</h1>
+
+
+
+<form method="post" action="/fuel/add">
+
+
+    <label>
+        Vehicle
+    </label>
+
+
+    <select name="vehicle_id">
+
+
+        {% for vehicle in vehicles %}
+
+
+        <option value="{{ vehicle.id }}">
+
+            {{ vehicle.vehicle_number }}
+
+        </option>
+
+
+        {% endfor %}
+
+
+    </select>
+
+
+
+    <label>
+        Quantity (Litres)
+    </label>
+
+
+    <input
+        type="number"
+        step="0.01"
+        name="quantity"
+        required
+    >
+
+
+
+    <label>
+        Cost
+    </label>
+
+
+    <input
+        type="number"
+        step="0.01"
+        name="cost"
+        required
+    >
+
+
+
+    <label>
+        Date
+    </label>
+
+
+    <input
+        type="date"
+        name="x_date"
+    >
+
+
+
+    <button type="submit">
+        Save Fuel Record
+    </button>
+
+
+</form>
+
+
+{% endblock %}

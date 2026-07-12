@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+Expenses - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="page-header">
+
+
+    <h1>
+        Expenses
+    </h1>
+
+
+    <a href="/expenses/add">
+        Add Expense
+    </a>
+
+
+</div>
+
+
+
+<table>
+
+
+    <thead>
+
+
+        <tr>
+
+
+            <th>
+                Category
+            </th>
+
+
+            <th>
+                Description
+            </th>
+
+
+            <th>
+                Amount
+            </th>
+
+
+            <th>
+                Date
+            </th>
+
+
+        </tr>
+
+
+    </thead>
+
+
+
+    <tbody>
+
+
+
+        {% for expense in expenses %}
+
+
+
+        <tr>
+
+
+            <td>
+                {{ expense.category }}
+            </td>
+
+
+            <td>
+                {{ expense.description }}
+            </td>
+
+
+            <td>
+                ₹ {{ expense.amount }}
+            </td>
+
+
+            <td>
+                {{ expense.x_date }}
+            </td>
+
+
+        </tr>
+
+
+
+        {% endfor %}
+
+
+
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

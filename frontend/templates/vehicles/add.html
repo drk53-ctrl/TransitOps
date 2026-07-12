@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Vehicle - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Add Vehicle
+</h1>
+
+
+<form method="post" action="/vehicles/add">
+
+
+    <label>
+        Vehicle Number
+    </label>
+
+    <input
+        type="text"
+        name="vehicle_number"
+        required
+    >
+
+
+    <label>
+        Vehicle Type
+    </label>
+
+    <input
+        type="text"
+        name="vehicle_type"
+        required
+    >
+
+
+    <label>
+        Model
+    </label>
+
+    <input
+        type="text"
+        name="model"
+    >
+
+
+    <label>
+        Year
+    </label>
+
+    <input
+        type="number"
+        name="year"
+    >
+
+
+    <label>
+        Capacity
+    </label>
+
+    <input
+        type="number"
+        name="capacity"
+    >
+
+
+    <label>
+        Status
+    </label>
+
+    <select name="status">
+
+        <option value="Available">
+            Available
+        </option>
+
+        <option value="Maintenance">
+            Maintenance
+        </option>
+
+        <option value="Inactive">
+            Inactive
+        </option>
+
+    </select>
+
+
+    <button type="submit">
+        Save Vehicle
+    </button>
+
+
+</form>
+
+
+{% endblock %}

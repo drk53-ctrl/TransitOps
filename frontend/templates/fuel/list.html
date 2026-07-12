@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+Fuel Records - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="page-header">
+
+
+    <h1>
+        Fuel Records
+    </h1>
+
+
+    <a href="/fuel/add">
+        Add Fuel Record
+    </a>
+
+
+</div>
+
+
+
+<table>
+
+
+    <thead>
+
+
+        <tr>
+
+
+            <th>
+                Vehicle
+            </th>
+
+
+            <th>
+                Quantity
+            </th>
+
+
+            <th>
+                Cost
+            </th>
+
+
+            <th>
+                Date
+            </th>
+
+
+        </tr>
+
+
+    </thead>
+
+
+
+    <tbody>
+
+
+
+        {% for fuel in fuels %}
+
+
+
+        <tr>
+
+
+            <td>
+                {{ fuel.vehicle.vehicle_number }}
+            </td>
+
+
+            <td>
+                {{ fuel.quantity }} L
+            </td>
+
+
+            <td>
+                ₹ {{ fuel.cost }}
+            </td>
+
+
+            <td>
+                {{ fuel.x_date }}
+            </td>
+
+
+        </tr>
+
+
+
+        {% endfor %}
+
+
+
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

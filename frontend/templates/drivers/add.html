@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Driver - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<h1>
+    Add Driver
+</h1>
+
+
+<form method="post" action="/drivers/add">
+
+
+    <label>
+        Name
+    </label>
+
+    <input
+        type="text"
+        name="name"
+        required
+    >
+
+
+    <label>
+        Phone
+    </label>
+
+    <input
+        type="text"
+        name="phone"
+    >
+
+
+    <label>
+        License Number
+    </label>
+
+    <input
+        type="text"
+        name="license_number"
+        required
+    >
+
+
+    <label>
+        License Expiry
+    </label>
+
+    <input
+        type="date"
+        name="license_expiry"
+    >
+
+
+    <label>
+        Status
+    </label>
+
+    <select name="status">
+
+        <option value="Available">
+            Available
+        </option>
+
+        <option value="On Trip">
+            On Trip
+        </option>
+
+        <option value="Inactive">
+            Inactive
+        </option>
+
+    </select>
+
+
+    <button type="submit">
+        Save Driver
+    </button>
+
+
+</form>
+
+
+{% endblock %}

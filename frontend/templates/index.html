@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransitOps Fleet Management</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">TransitOps</div>
+        <ul class="nav-links">
+            <li class="active" data-target="dashboard-view">Dashboard</li>
+            <li data-target="vehicles-view">Vehicles</li>
+            <li data-target="drivers-view">Drivers</li>
+            <li data-target="trips-view">Trips</li>
+            <li data-target="maintenance-view">Maintenance</li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <h2 id="page-title">Dashboard</h2>
+            <div class="user-info">Admin User</div>
+        </header>
+
+        <section id="dashboard-view" class="view-section active">
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Fleet Utilization</h3>
+                    <p id="dash-utilization" class="stat-large">--%</p>
+                </div>
+                <div class="card">
+                    <h3>Active Trips</h3>
+                    <p id="dash-active-trips" class="stat-large">--</p>
+                </div>
+                <div class="card">
+                    <h3>Available Vehicles</h3>
+                    <p id="dash-avail-vehicles" class="stat-large">--</p>
+                </div>
+                <div class="card">
+                    <h3>Vehicles in Shop</h3>
+                    <p id="dash-in-shop" class="stat-large">--</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vehicles-view" class="view-section">
+            <div class="table-header">
+                <h3>Fleet Inventory</h3>
+                <button class="btn-primary" id="btn-add-vehicle">+ Add Vehicle</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Reg. Number</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="vehicles-table-body">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="drivers-view" class="view-section">
+            <div class="table-header">
+                <h3>Driver Roster</h3>
+                <button class="btn-primary" id="btn-add-driver">+ Add Driver</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>License</th>
+                        <th>Expiry</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="drivers-table-body">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="trips-view" class="view-section">
+            <div class="table-header">
+                <h3>Trip Dispatch</h3>
+                <button class="btn-primary" id="btn-add-trip">+ Create Draft Trip</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Source -> Destination</th>
+                        <th>Vehicle ID</th>
+                        <th>Driver ID</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="trips-table-body">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="maintenance-view" class="view-section">
+            <div class="table-header">
+                <h3>Maintenance Logs</h3>
+                <button class="btn-primary" id="btn-add-maintenance">+ Open Ticket</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehicle ID</th>
+                        <th>Description</th>
+                        <th>Cost</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="maintenance-table-body">
+                    </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="../static/js/app.js"></script>
+</body>
+</html>

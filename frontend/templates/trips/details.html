@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}
+Trip Details - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>
+    Trip Details
+</h1>
+
+
+<div class="details-card">
+
+
+    <p>
+        <strong>
+            Vehicle:
+        </strong>
+
+        {{ trip.vehicle.vehicle_number }}
+    </p>
+
+
+    <p>
+        <strong>
+            Driver:
+        </strong>
+
+        {{ trip.driver.name }}
+    </p>
+
+
+    <p>
+        <strong>
+            Source:
+        </strong>
+
+        {{ trip.source }}
+    </p>
+
+
+    <p>
+        <strong>
+            Destination:
+        </strong>
+
+        {{ trip.destination }}
+    </p>
+
+
+    <p>
+        <strong>
+            Distance:
+        </strong>
+
+        {{ trip.distance }} km
+    </p>
+
+
+    <p>
+        <strong>
+            Start Time:
+        </strong>
+
+        {{ trip.start_time }}
+    </p>
+
+
+    <p>
+        <strong>
+            End Time:
+        </strong>
+
+        {{ trip.end_time }}
+    </p>
+
+
+    <p>
+        <strong>
+            Status:
+        </strong>
+
+        {{ trip.status }}
+    </p>
+
+
+</div>
+
+
+
+{% if trip.status == "Running" %}
+
+
+<form method="post" action="/trips/{{ trip.id }}/complete">
+
+
+    <button type="submit">
+        Complete Trip
+    </button>
+
+
+</form>
+
+
+<form method="post" action="/trips/{{ trip.id }}/cancel">
+
+
+    <button type="submit">
+        Cancel Trip
+    </button>
+
+
+</form>
+
+
+{% endif %}
+
+
+
+{% endblock %}

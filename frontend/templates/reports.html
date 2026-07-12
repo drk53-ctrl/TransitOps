@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Reports - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<h1>
+    Reports & Analytics
+</h1>
+
+
+<div class="cards">
+
+
+    <div class="card">
+        <h3>
+            Total Trips
+        </h3>
+
+        <p>
+            {{ total_trips | default(0, true) }}
+        </p>
+    </div>
+
+
+
+    <div class="card">
+        <h3>
+            Total Distance
+        </h3>
+
+        <p>
+            {{ total_distance | default(0, true) }} km
+        </p>
+    </div>
+
+
+
+    <div class="card">
+        <h3>
+            Fuel Expense
+        </h3>
+
+        <p>
+            ₹ {{ fuel_expense | default(0, true) }}
+        </p>
+    </div>
+
+
+
+    <div class="card">
+        <h3>
+            Maintenance Expense
+        </h3>
+
+        <p>
+            ₹ {{ maintenance_expense | default(0, true) }}
+        </p>
+    </div>
+
+
+
+    <div class="card">
+        <h3>
+            Other Expenses
+        </h3>
+
+        <p>
+            ₹ {{ other_expense | default(0, true) }}
+        </p>
+    </div>
+
+
+</div>
+
+
+
+<div class="chart-container">
+
+    <canvas id="expenseChart"></canvas>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+const ctx = document.getElementById("expenseChart");
+
+
+const fuelExpense = Number("{{ fuel_expense | default(0, true) }}");
+
+const maintenanceExpense = Number("{{ maintenance_expense | default(0, true) }}");
+
+const otherExpense = Number("{{ other_expense | default(0, true) }}");
+
+
+
+new Chart(ctx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+            "Fuel",
+            "Maintenance",
+            "Other"
+        ],
+
+
+        datasets: [
+
+            {
+
+                label: "Expenses",
+
+                data: [
+                    fuelExpense,
+                    maintenanceExpense,
+                    otherExpense
+                ]
+
+            }
+
+        ]
+
+    }
+
+});
+
+</script>
+
+
+{% endblock %}

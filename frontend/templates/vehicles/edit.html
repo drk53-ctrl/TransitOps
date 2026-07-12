@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Vehicle - TransitOps
+{% endblock %}
+
+
+{% block content %}
+
+<h1>
+    Edit Vehicle
+</h1>
+
+
+<form method="post" action="/vehicles/{{ vehicle.id }}/edit">
+
+
+    <label>
+        Vehicle Number
+    </label>
+
+    <input
+        type="text"
+        name="vehicle_number"
+        value="{{ vehicle.vehicle_number }}"
+        required
+    >
+
+
+    <label>
+        Vehicle Type
+    </label>
+
+    <input
+        type="text"
+        name="vehicle_type"
+        value="{{ vehicle.vehicle_type }}"
+        required
+    >
+
+
+    <label>
+        Model
+    </label>
+
+    <input
+        type="text"
+        name="model"
+        value="{{ vehicle.model }}"
+    >
+
+
+    <label>
+        Year
+    </label>
+
+    <input
+        type="number"
+        name="year"
+        value="{{ vehicle.year }}"
+    >
+
+
+    <label>
+        Capacity
+    </label>
+
+    <input
+        type="number"
+        name="capacity"
+        value="{{ vehicle.capacity }}"
+    >
+
+
+    <label>
+        Status
+    </label>
+
+    <select name="status">
+
+        <option value="Available"
+        {% if vehicle.status == "Available" %}
+        selected
+        {% endif %}>
+            Available
+        </option>
+
+
+        <option value="On Trip"
+        {% if vehicle.status == "On Trip" %}
+        selected
+        {% endif %}>
+            On Trip
+        </option>
+
+
+        <option value="Maintenance"
+        {% if vehicle.status == "Maintenance" %}
+        selected
+        {% endif %}>
+            Maintenance
+        </option>
+
+
+    </select>
+
+
+    <button type="submit">
+        Update Vehicle
+    </button>
+
+
+</form>
+
+
+{% endblock %}
